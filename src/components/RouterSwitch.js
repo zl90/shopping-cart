@@ -1,11 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "../App";
+import Home from "./Home/Home";
+import Shop from "./Shop/Shop";
+import ProductInfo from "./ProductInfo/ProductInfo";
 
 const RouterSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Shop />} />
+        {/* Look up how to handle product IDs */}
+        <Route path="/products:id" element={<ProductInfo />} />
       </Routes>
     </BrowserRouter>
   );
