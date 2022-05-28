@@ -101,3 +101,19 @@ code {
   gap: 16px;
   flex: 5;
 }
+
+.product-info-layout {
+  display: flex;
+}
+
+.product-info-title-container {
+  flex: 3;
+}
+
+.product-info-image {
+  flex: 3;
+}
+
+.product-description-container {
+  flex: 2;
+}
