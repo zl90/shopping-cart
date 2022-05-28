@@ -8,7 +8,9 @@ const Home = () => {
       <h1>Oh. So. Pro.</h1>
       <p>From A$1,699 before trade-in.</p>
       <button>Buy Now</button>
-      <a href="#">Learn more {">"}</a>
+      <a href="#" className="content-link">
+        Learn more {">"}
+      </a>
     </div>
   );
 };

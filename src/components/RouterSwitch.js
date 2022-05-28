@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import Shop from "./Shop/Shop";
 import ProductInfo from "./ProductInfo/ProductInfo";
+import "../index.css";
 
 const RouterSwitch = () => {
   return (
