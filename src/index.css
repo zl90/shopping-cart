@@ -31,6 +31,12 @@ code {
   align-items: center;
 }
 
+.shop-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .header-title {
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -50,4 +56,48 @@ code {
 
 .content-link {
   color: red;
+}
+
+.shop-container {
+  height: 100%;
+}
+
+.shop-content-container {
+  display: flex;
+  height: 100%;
+}
+
+.shop-sidebar-container {
+  flex: 1;
+}
+
+.product-grid-container {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-grid-item-container {
+  height: 200px;
+}
+
+.product-grid-item-image {
+  width: 200px;
+  height: 200px;
+}
+
+.shop-sidebar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-filter-title-container {
+  flex: 1;
+}
+
+.filter-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 5;
 }
