@@ -1,8 +1,7 @@
 import * as React from "react";
-import IconButton from "@mui/material/IconButton";
-import ShoppingBag from "@mui/icons-material/ShoppingBag";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
+import Cart from "../Cart/Cart";
 
 const Header = () => {
   return (
@@ -15,9 +14,8 @@ const Header = () => {
         <Link className="shop-link" to="/catalog">
           <Button>Shop</Button>
         </Link>
-        <IconButton aria-label="delete">
-          <ShoppingBag />
-        </IconButton>
+
+        <Cart />
       </div>
     </div>
   );
