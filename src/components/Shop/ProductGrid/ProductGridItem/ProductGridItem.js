@@ -12,7 +12,9 @@ const ProductGridItem = (props) => {
         src={props.product.image}
       />
       <h2 className="product-grid-item-title">{props.product.name}</h2>
-      <p className="product-grid-item-price">{"$" + props.product.price}</p>
+      <p className="product-grid-item-price">
+        {"$" + props.product.price.toFixed(2)}
+      </p>
     </Link>
   );
 };

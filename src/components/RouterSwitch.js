@@ -80,13 +80,34 @@ const RouterSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+          products={products}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+        />
         <Route
           path="/catalog"
-          element={<Shop products={products} cartItems={cartItems} />}
+          element={
+            <Shop
+              products={products}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
+          }
         />
         {/* Look up how to handle product IDs */}
-        <Route path="/products:id" element={<ProductInfo />} />
+        <Route
+          path="/products:id"
+          element={
+            <ProductInfo
+              products={products}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
