@@ -25,7 +25,7 @@ const ProductInfo = (props) => {
 
   return (
     <div className="product-info-container">
-      <Header />
+      <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} />
       <div className="product-info-layout">
         <div className="product-info-title-container">
           <h1>{product.name}</h1>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Cart from "../Cart/Cart";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="header-container">
       <Link className="header-home-link" to="/">
@@ -15,7 +15,7 @@ const Header = () => {
           <Button>Shop</Button>
         </Link>
 
-        <Cart />
+        <Cart open={props.modalOpen} setOpen={props.setModalOpen} />
       </div>
     </div>
   );

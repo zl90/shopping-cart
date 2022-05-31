@@ -17,7 +17,6 @@ const style = {
   position: "absolute",
   top: "0%",
   right: "0%",
-  //   transform: "translate(-50%, -50%)",
   width: 400,
   height: "100%",
   bgcolor: "background.paper",
@@ -26,19 +25,17 @@ const style = {
   p: 4,
 };
 
-function Cart() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+function Cart(props) {
+  const handleOpen = () => props.setOpen(true);
+  const handleClose = () => props.setOpen(false);
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <IconButton aria-label="open-modal" onClick={handleOpen}>
         <ShoppingBag />
       </IconButton>
       <Modal
-        open={open}
+        open={props.open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"

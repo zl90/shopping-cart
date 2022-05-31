@@ -13,6 +13,7 @@ import iPhone11Image from "../images/iphone-11.jpeg";
 import iPhoneSEImage from "../images/iphone-SE.jpeg";
 
 const RouterSwitch = () => {
+  const [open, setOpen] = useState(false); // Modal open/close state
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([
     {
@@ -82,10 +83,15 @@ const RouterSwitch = () => {
       <Routes>
         <Route
           path="/"
-          element={<Home />}
-          products={products}
-          cartItems={cartItems}
-          setCartItems={setCartItems}
+          element={
+            <Home
+              products={products}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              modalOpen={open}
+              setModalOpen={setOpen}
+            />
+          }
         />
         <Route
           path="/catalog"
@@ -94,6 +100,8 @@ const RouterSwitch = () => {
               products={products}
               cartItems={cartItems}
               setCartItems={setCartItems}
+              modalOpen={open}
+              setModalOpen={setOpen}
             />
           }
         />
@@ -105,6 +113,8 @@ const RouterSwitch = () => {
               products={products}
               cartItems={cartItems}
               setCartItems={setCartItems}
+              modalOpen={open}
+              setModalOpen={setOpen}
             />
           }
         />
