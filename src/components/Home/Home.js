@@ -1,4 +1,5 @@
 import Header from "../Header/Header";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -8,9 +9,9 @@ const Home = () => {
       <h1>Oh. So. Pro.</h1>
       <p>From A$1,699 before trade-in.</p>
       <button>Buy Now</button>
-      <a href="#" className="content-link">
+      <Link className="content-link" to={"/products:74567"}>
         Learn more {">"}
-      </a>
+      </Link>
     </div>
   );
 };

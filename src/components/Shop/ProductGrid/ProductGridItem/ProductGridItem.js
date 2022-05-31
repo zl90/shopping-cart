@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 
-const ProductGridItem = () => {
+const ProductGridItem = (props) => {
   return (
-    <Link to="/products:3456" className="product-grid-item-container">
+    <Link
+      to={`/products:${props.product.id}`}
+      className="product-grid-item-container"
+    >
       <img
         className="product-grid-item-image"
-        alt="a product item, update this description later"
-        src="#"
+        alt={props.product.name}
+        src={props.product.image}
       />
-      <h2 className="product-grid-item-title">product title</h2>
-      <p className="product-grid-item-price">$1999.00</p>
+      <h2 className="product-grid-item-title">{props.product.name}</h2>
+      <p className="product-grid-item-price">{"$" + props.product.price}</p>
     </Link>
   );
 };
