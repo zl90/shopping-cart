@@ -1,15 +1,11 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { IconButton } from "@mui/material";
 import ShoppingBag from "@mui/icons-material/ShoppingBag";
 import { styled } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
-import Slider from "@mui/material/Slider";
 import MuiInput from "@mui/material/Input";
-import VolumeUp from "@mui/icons-material/VolumeUp";
 import "./Cart.css";
 import uniqid from "uniqid";
 
@@ -42,7 +38,9 @@ function Cart(props) {
       >
         <Box sx={style} className="cart-container">
           <div className="close-modal-button-container">
-            <button>X</button>
+            <button className="close-modal-button" onClick={handleClose}>
+              X
+            </button>
           </div>
           <div className="modal-title">Cart</div>
           <div className="cart-item-list">
@@ -80,7 +78,11 @@ const CartItem = (props) => {
   return (
     <div className="cart-item-container">
       <div className="cart-item-left">
-        <img alt="product" src="#"></img>
+        <img
+          className="cart-item-image"
+          alt="product"
+          src={props.product.image}
+        ></img>
       </div>
       <div className="cart-item-right">
         <h2 className="cart-item-title">{props.product.name}</h2>

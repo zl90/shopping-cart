@@ -31,6 +31,7 @@ const ProductInfo = (props) => {
         products={props.products}
         setProducts={props.setProducts}
         totalPrice={props.totalPrice}
+        totalItems={props.totalItems}
       />
       <div className="product-info-layout">
         <div className="product-info-title-container">

@@ -15,12 +15,20 @@ const Header = (props) => {
           <Button>Shop</Button>
         </Link>
 
+        {props.totalItems > 0 && (
+          <div className="cart-popup-layout-container">
+            <div className="cart-popup-container">{props.totalItems}</div>
+            <div className="cart-popup-container-spike">{""}</div>
+          </div>
+        )}
+
         <Cart
           modalOpen={props.modalOpen}
           setModalOpen={props.setModalOpen}
           products={props.products}
           setProducts={props.setProducts}
           totalPrice={props.totalPrice}
+          totalItems={props.totalItems}
         />
       </div>
     </div>

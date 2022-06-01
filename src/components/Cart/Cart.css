@@ -88,3 +88,8 @@
 .volume-input-title {
   font-size: 0.9rem;
 }
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+}

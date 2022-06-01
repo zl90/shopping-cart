@@ -6,6 +6,14 @@ const Home = (props) => {
   const handleAddToCartClick = () => {
     // Open the Cart modal
     props.setModalOpen(true);
+    // Increment the quantity of the selected product
+    const newArray = props.products.map((object, i) => {
+      if (object.id === "i13pro") {
+        return { ...object, quantity: object.quantity + 1 };
+      }
+      return object;
+    });
+    props.setProducts(newArray);
   };
 
   return (
@@ -16,6 +24,7 @@ const Home = (props) => {
         products={props.products}
         setProducts={props.setProducts}
         totalPrice={props.totalPrice}
+        totalItems={props.totalItems}
       />
       <h3>iPhone 13 Pro</h3>
       <h1>Oh. So. Pro.</h1>

@@ -15,6 +15,7 @@ const Shop = (props) => {
         products={props.products}
         setProducts={props.setProducts}
         totalPrice={props.totalPrice}
+        totalItems={props.totalItems}
       />
       <div className="shop-content-container">
         <ShopSideBar

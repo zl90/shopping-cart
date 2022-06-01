@@ -13,7 +13,8 @@ import iPhone11Image from "../images/iphone-11.jpeg";
 import iPhoneSEImage from "../images/iphone-SE.jpeg";
 
 const RouterSwitch = () => {
-  const [totalPrice, setTotalPrice] = useState(0); // Keep track of total price of all cart items
+  const [totalItems, setTotalItems] = useState(0); // Total number of items in the cart
+  const [totalPrice, setTotalPrice] = useState(0); // Total price of all items in the cart
   const [modalOpen, setModalOpen] = useState(false); // Modal open/close state
   const [products, setProducts] = useState([
     {
@@ -85,10 +86,18 @@ const RouterSwitch = () => {
   ]);
 
   useEffect(() => {
-    const result = products.reduce((previous, current) => {
-      return Number(current.price) * Number(current.quantity) + previous;
+    // Update the total price whenever anything changes in the product array
+    const priceCount = products.reduce((previous, current) => {
+      return (
+        Number(current.price) * Number(current.quantity) + Number(previous)
+      );
     }, 0);
-    setTotalPrice(result);
+    setTotalPrice(priceCount);
+
+    const itemsCount = products.reduce((previous, current) => {
+      return Number(current.quantity) + Number(previous);
+    }, 0);
+    setTotalItems(itemsCount);
   }, [products]);
 
   return (
@@ -99,9 +108,11 @@ const RouterSwitch = () => {
           element={
             <Home
               products={products}
+              setProducts={setProducts}
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
               totalPrice={totalPrice}
+              totalItems={totalItems}
             />
           }
         />
@@ -113,6 +124,7 @@ const RouterSwitch = () => {
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
               totalPrice={totalPrice}
+              totalItems={totalItems}
             />
           }
         />
@@ -126,6 +138,7 @@ const RouterSwitch = () => {
               modalOpen={modalOpen}
               setModalOpen={setModalOpen}
               totalPrice={totalPrice}
+              totalItems={totalItems}
             />
           }
         />
