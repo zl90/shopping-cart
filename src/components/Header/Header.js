@@ -15,7 +15,13 @@ const Header = (props) => {
           <Button>Shop</Button>
         </Link>
 
-        <Cart open={props.modalOpen} setOpen={props.setModalOpen} />
+        <Cart
+          modalOpen={props.modalOpen}
+          setModalOpen={props.setModalOpen}
+          products={props.products}
+          setProducts={props.setProducts}
+          totalPrice={props.totalPrice}
+        />
       </div>
     </div>
   );

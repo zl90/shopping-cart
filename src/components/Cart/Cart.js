@@ -5,13 +5,13 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { IconButton } from "@mui/material";
 import ShoppingBag from "@mui/icons-material/ShoppingBag";
-
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Slider from "@mui/material/Slider";
 import MuiInput from "@mui/material/Input";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import "./Cart.css";
+import uniqid from "uniqid";
 
 const style = {
   position: "absolute",
@@ -26,8 +26,8 @@ const style = {
 };
 
 function Cart(props) {
-  const handleOpen = () => props.setOpen(true);
-  const handleClose = () => props.setOpen(false);
+  const handleOpen = () => props.setModalOpen(true);
+  const handleClose = () => props.setModalOpen(false);
 
   return (
     <div>
@@ -35,7 +35,7 @@ function Cart(props) {
         <ShoppingBag />
       </IconButton>
       <Modal
-        open={props.open}
+        open={props.modalOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -46,11 +46,22 @@ function Cart(props) {
           </div>
           <div className="modal-title">Cart</div>
           <div className="cart-item-list">
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {props.products.map((object, i) => {
+              if (object.quantity > 0) {
+                return (
+                  <CartItem
+                    setProducts={props.setProducts}
+                    products={props.products}
+                    product={object}
+                    key={object.id + i}
+                  />
+                );
+              } else {
+                return <div key={uniqid()}></div>;
+              }
+            })}
           </div>
-          <div className="modal-total-price">Total: $1999.00</div>
+          <div className="modal-total-price">Total: ${props.totalPrice}.00</div>
           <div className="modal-checkout-button-container">
             <button>CHECKOUT</button>
           </div>
@@ -64,26 +75,42 @@ const Input = styled(MuiInput)`
   width: 42px;
 `;
 
-const CartItem = () => {
+const CartItem = (props) => {
+  React.useEffect(() => {}, [props]);
   return (
     <div className="cart-item-container">
       <div className="cart-item-left">
         <img alt="product" src="#"></img>
       </div>
       <div className="cart-item-right">
-        <h2 className="cart-item-title">Product Name goes here</h2>
-        <InputSlider></InputSlider>
-        <div className="cart-item-total-price">$1299.00</div>
+        <h2 className="cart-item-title">{props.product.name}</h2>
+        <InputSlider
+          value={props.product.quantity}
+          product={props.product}
+          setProducts={props.setProducts}
+          products={props.products}
+        ></InputSlider>
+        <div className="cart-item-total-price">
+          ${props.product.price * props.product.quantity}.00
+        </div>
       </div>
     </div>
   );
 };
 
-function InputSlider() {
-  const [value, setValue] = React.useState(1);
+function InputSlider(props) {
+  const [value, setValue] = React.useState(props.value);
 
   const handleInputChange = (event) => {
     setValue(event.target.value === "" ? "" : Number(event.target.value));
+    const newArray = props.products.map((object, i) => {
+      if (props.product.id === object.id) {
+        return { ...object, quantity: Number(event.target.value) };
+      } else {
+        return object;
+      }
+    });
+    props.setProducts(newArray);
   };
 
   const handleBlur = () => {
@@ -97,7 +124,7 @@ function InputSlider() {
   return (
     <div className="volume-input-container">
       <Typography className="volume-input-title" id="input-slider" gutterBottom>
-        Amount
+        Quantity
       </Typography>
       <Input
         className="volume-input-selector"
@@ -107,7 +134,7 @@ function InputSlider() {
         onBlur={handleBlur}
         inputProps={{
           step: 1,
-          min: 1,
+          min: 0,
           max: 100,
           type: "number",
           "aria-labelledby": "input-slider",

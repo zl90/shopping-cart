@@ -3,7 +3,7 @@ import Home from "./Home/Home";
 import Shop from "./Shop/Shop";
 import ProductInfo from "./ProductInfo/ProductInfo";
 import "../index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import uniqid from "uniqid";
 import iPhone13ProMaxImage from "../images/iphone-13-pro-max.jpeg";
 import iPhone13ProImage from "../images/iphone-13-pro.jpeg";
@@ -13,8 +13,8 @@ import iPhone11Image from "../images/iphone-11.jpeg";
 import iPhoneSEImage from "../images/iphone-SE.jpeg";
 
 const RouterSwitch = () => {
-  const [open, setOpen] = useState(false); // Modal open/close state
-  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0); // Keep track of total price of all cart items
+  const [modalOpen, setModalOpen] = useState(false); // Modal open/close state
   const [products, setProducts] = useState([
     {
       name: 'iPhone 13 Pro Max 6.7"',
@@ -24,6 +24,7 @@ const RouterSwitch = () => {
       image: iPhone13ProMaxImage,
       price: 1849,
       category: "iPhone 13",
+      quantity: 0,
       id: "i13promax",
     },
     {
@@ -34,6 +35,7 @@ const RouterSwitch = () => {
       image: iPhone13ProImage,
       price: 1699,
       category: "iPhone 13",
+      quantity: 0,
       id: "i13pro",
     },
     {
@@ -44,6 +46,7 @@ const RouterSwitch = () => {
       image: iPhone12Image,
       price: 1199,
       category: "iPhone 12",
+      quantity: 0,
       id: "i12",
     },
     {
@@ -54,6 +57,7 @@ const RouterSwitch = () => {
       image: iPhone12MiniImage,
       price: 999,
       category: "iPhone 12",
+      quantity: 0,
       id: "i12mini",
     },
     {
@@ -64,6 +68,7 @@ const RouterSwitch = () => {
       image: iPhone11Image,
       price: 849,
       category: "iPhone 11",
+      quantity: 0,
       id: "i11",
     },
     {
@@ -74,9 +79,17 @@ const RouterSwitch = () => {
       image: iPhoneSEImage,
       price: 719,
       category: "iPhone SE",
+      quantity: 0,
       id: "iSE",
     },
   ]);
+
+  useEffect(() => {
+    const result = products.reduce((previous, current) => {
+      return Number(current.price) * Number(current.quantity) + previous;
+    }, 0);
+    setTotalPrice(result);
+  }, [products]);
 
   return (
     <BrowserRouter>
@@ -86,10 +99,9 @@ const RouterSwitch = () => {
           element={
             <Home
               products={products}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              modalOpen={open}
-              setModalOpen={setOpen}
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              totalPrice={totalPrice}
             />
           }
         />
@@ -98,10 +110,9 @@ const RouterSwitch = () => {
           element={
             <Shop
               products={products}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              modalOpen={open}
-              setModalOpen={setOpen}
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              totalPrice={totalPrice}
             />
           }
         />
@@ -111,10 +122,10 @@ const RouterSwitch = () => {
           element={
             <ProductInfo
               products={products}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              modalOpen={open}
-              setModalOpen={setOpen}
+              setProducts={setProducts}
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              totalPrice={totalPrice}
             />
           }
         />

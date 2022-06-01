@@ -25,7 +25,13 @@ const ProductInfo = (props) => {
 
   return (
     <div className="product-info-container">
-      <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} />
+      <Header
+        modalOpen={props.modalOpen}
+        setModalOpen={props.setModalOpen}
+        products={props.products}
+        setProducts={props.setProducts}
+        totalPrice={props.totalPrice}
+      />
       <div className="product-info-layout">
         <div className="product-info-title-container">
           <h1>{product.name}</h1>
@@ -36,7 +42,13 @@ const ProductInfo = (props) => {
           src={product.image}
           className="product-info-image"
         />
-        <ProductDescription product={product} />
+        <ProductDescription
+          product={product}
+          modalOpen={props.modalOpen}
+          setModalOpen={props.setModalOpen}
+          products={props.products}
+          setProducts={props.setProducts}
+        />
       </div>
     </div>
   );

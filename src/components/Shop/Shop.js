@@ -9,7 +9,13 @@ const Shop = (props) => {
 
   return (
     <div className="shop-container">
-      <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} />
+      <Header
+        modalOpen={props.modalOpen}
+        setModalOpen={props.setModalOpen}
+        products={props.products}
+        setProducts={props.setProducts}
+        totalPrice={props.totalPrice}
+      />
       <div className="shop-content-container">
         <ShopSideBar
           currentFilter={currentFilter}
