@@ -11,10 +11,12 @@ const ProductGridItem = (props) => {
         alt={props.product.name}
         src={props.product.image}
       />
-      <h2 className="product-grid-item-title">{props.product.name}</h2>
-      <p className="product-grid-item-price">
-        {"$" + props.product.price.toFixed(2)}
-      </p>
+      <div className="product-grid-item-bottom">
+        <h2 className="product-grid-item-title">{props.product.name}</h2>
+        <p className="product-grid-item-price">
+          {"$" + props.product.price.toFixed(2)}
+        </p>
+      </div>
     </Link>
   );
 };

@@ -1,5 +1,3 @@
-import { Button } from "@mui/material";
-
 const ShopSideBar = (props) => {
   return (
     <div className="shop-sidebar-container">
@@ -8,36 +6,36 @@ const ShopSideBar = (props) => {
         <h1>{props.currentFilter}</h1>
       </div>
       <div className="filter-list-container">
-        <Button
+        <button
           className="filter-button"
           onClick={() => props.setCurrentFilter("All")}
         >
           All iPhones
-        </Button>
-        <Button
+        </button>
+        <button
           className="filter-button"
           onClick={() => props.setCurrentFilter("iPhone 13")}
         >
           iPhone 13
-        </Button>
-        <Button
+        </button>
+        <button
           className="filter-button"
           onClick={() => props.setCurrentFilter("iPhone 12")}
         >
           iPhone 12
-        </Button>
-        <Button
+        </button>
+        <button
           className="filter-button"
           onClick={() => props.setCurrentFilter("iPhone 11")}
         >
           iPhone 11
-        </Button>
-        <Button
+        </button>
+        <button
           className="filter-button"
           onClick={() => props.setCurrentFilter("iPhone SE")}
         >
           iPhone SE
-        </Button>
+        </button>
       </div>
     </div>
   );
