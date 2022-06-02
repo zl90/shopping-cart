@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.ff8acd13.css",
-    "main.js": "/shopping-cart/static/js/main.d9662416.js",
+    "main.js": "/shopping-cart/static/js/main.043e0138.js",
     "static/media/home-background.jpg": "/shopping-cart/static/media/home-background.6cd131034b0f5ad3045e.jpg",
     "static/media/iphone-12.jpeg": "/shopping-cart/static/media/iphone-12.574fcfafe9a05cb26249.jpeg",
     "static/media/iphone-11.jpeg": "/shopping-cart/static/media/iphone-11.4d089fde3044c35cf800.jpeg",
@@ -11,10 +11,10 @@
     "static/media/iphone-13-pro-max.jpeg": "/shopping-cart/static/media/iphone-13-pro-max.6a933a465279031a5116.jpeg",
     "index.html": "/shopping-cart/index.html",
     "main.ff8acd13.css.map": "/shopping-cart/static/css/main.ff8acd13.css.map",
-    "main.d9662416.js.map": "/shopping-cart/static/js/main.d9662416.js.map"
+    "main.043e0138.js.map": "/shopping-cart/static/js/main.043e0138.js.map"
   },
   "entrypoints": [
     "static/css/main.ff8acd13.css",
-    "static/js/main.d9662416.js"
+    "static/js/main.043e0138.js"
   ]
 }
