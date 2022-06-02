@@ -103,11 +103,21 @@ const CartItem = (props) => {
 function InputSlider(props) {
   const [value, setValue] = React.useState(props.value);
 
+  React.useEffect(() => {
+    handleBlur();
+  }, []);
+
   const handleInputChange = (event) => {
+    // Update the frontend "quantity" value
     setValue(event.target.value === "" ? "" : Number(event.target.value));
+    // Then make sure the state reflects that value
+    updateStateValue(event.target.value);
+  };
+
+  const updateStateValue = (valueToSet) => {
     const newArray = props.products.map((object, i) => {
       if (props.product.id === object.id) {
-        return { ...object, quantity: Number(event.target.value) };
+        return { ...object, quantity: Number(valueToSet) };
       } else {
         return object;
       }
@@ -118,8 +128,10 @@ function InputSlider(props) {
   const handleBlur = () => {
     if (value < 0) {
       setValue(0);
-    } else if (value > 100) {
-      setValue(100);
+      updateStateValue(0);
+    } else if (value > 10) {
+      setValue(10);
+      updateStateValue(10);
     }
   };
 
@@ -137,7 +149,7 @@ function InputSlider(props) {
         inputProps={{
           step: 1,
           min: 0,
-          max: 100,
+          max: 10,
           type: "number",
           "aria-labelledby": "input-slider",
         }}
