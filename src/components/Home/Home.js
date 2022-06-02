@@ -26,15 +26,25 @@ const Home = (props) => {
         totalPrice={props.totalPrice}
         totalItems={props.totalItems}
       />
-      <h3>iPhone 13 Pro</h3>
-      <h1>Oh. So. Pro.</h1>
-      <p>From A$1,699 before trade-in.</p>
-      <button className="home-buy-now-button" onClick={handleAddToCartClick}>
-        Buy Now
-      </button>
-      <Link className="content-link" to={"/products:i13pro"}>
-        Learn more {">"}
-      </Link>
+      <div className="home-splash-container">
+        <div className="home-splash-left">
+          <h1>iPhone 13 Pro</h1>
+          <h3>Oh. So. Pro.</h3>
+          <p>From A$1,849 before trade-in.</p>
+          <div className="home-button-container">
+            <button
+              className="home-buy-now-button"
+              onClick={handleAddToCartClick}
+            >
+              Buy Now
+            </button>
+            <Link className="content-link" to={"/products:i13pro"}>
+              Learn more
+            </Link>
+          </div>
+        </div>
+        <div className="home-splash-right">{""}</div>
+      </div>
     </div>
   );
 };

@@ -85,8 +85,63 @@ code {
   flex-direction: column;
 }
 
+.home-splash-container {
+  display: flex;
+  height: 100%;
+}
+
+.home-splash-left {
+  flex: 2;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-splash-right {
+  flex: 3;
+}
+
+.home-buy-now-button {
+  width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  height: 50px;
+  border: 1px solid grey;
+  background-color: white;
+}
+
+.home-buy-now-button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.home-buy-now-button:active {
+  background-color: rgb(213, 213, 213);
+}
+
+.home-button-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.home-splash-left > h1 {
+  font-weight: 600;
+  font-size: 3.4rem;
+}
+
+.home-splash-left > h3 {
+  font-weight: normal;
+  font-size: 2.2rem;
+}
+
 .content-link {
-  color: red;
+  color: black;
+  text-decoration: none;
+}
+
+.content-link:hover {
+  text-decoration: underline;
 }
 
 .shop-container {
