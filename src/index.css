@@ -271,20 +271,101 @@ code {
   background-color: rgb(216, 216, 216);
 }
 
+.product-info-container {
+  height: 93%;
+}
+
 .product-info-layout {
   display: flex;
+  height: 100%;
 }
 
 .product-info-title-container {
-  flex: 3;
+  display: none;
+}
+
+.product-info-image-container {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-info-image {
-  flex: 3;
+  width: 75%;
+  height: 100%;
+  display: none;
 }
 
 .product-description-container {
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 24px;
+  box-shadow: -20px 0px 35px rgba(0, 0, 0, 0.212);
+}
+
+.product-description-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-description-paragraph {
+  text-align: center;
+}
+
+.product-description-price {
+  font-weight: bold;
+}
+
+.product-description-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.add-to-bag-button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  background-color: rgb(199, 196, 177);
+  color: black;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.add-to-bag-button:hover {
+  background-color: rgb(177, 174, 155);
+}
+
+.add-to-bag-button:active {
+  background-color: rgb(153, 150, 128);
+}
+
+.buy-it-now-button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  background-color: rgb(139, 114, 69);
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.buy-it-now-button:hover {
+  background-color: rgb(119, 100, 48);
+}
+
+.buy-it-now-button:active {
+  background-color: rgb(99, 83, 39);
 }
 
 .current-filter-title-container {

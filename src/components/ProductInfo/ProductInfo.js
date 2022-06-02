@@ -38,11 +38,21 @@ const ProductInfo = (props) => {
           <h1>{product.name}</h1>
           <p>{product.slogan}</p>
         </div>
-        <img
-          alt={product.name}
-          src={product.image}
-          className="product-info-image"
-        />
+        <div
+          className="product-info-image-container"
+          style={{
+            background: `url(${product.image})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          {/* <img
+            alt={product.name}
+            src={product.image}
+            className="product-info-image"
+          /> */}
+        </div>
         <ProductDescription
           product={product}
           modalOpen={props.modalOpen}
