@@ -12,7 +12,7 @@ const Header = (props) => {
 
       <div className="header-links-container">
         <Link className="shop-link" to="/catalog">
-          <Button>Shop</Button>
+          <button className="shop-link-button">Shop</button>
         </Link>
 
         {props.totalItems > 0 && (

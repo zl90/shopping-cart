@@ -9,6 +9,7 @@ import MuiInput from "@mui/material/Input";
 import "./Cart.css";
 import uniqid from "uniqid";
 import CloseIcon from "@mui/icons-material/Close";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const style = {
   position: "absolute",
@@ -22,15 +23,33 @@ const style = {
   p: 4,
 };
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FFFFFF",
+    },
+    secondary: {
+      main: "#b9f6ca",
+    },
+  },
+});
+
 function Cart(props) {
   const handleOpen = () => props.setModalOpen(true);
   const handleClose = () => props.setModalOpen(false);
 
   return (
     <div>
-      <IconButton aria-label="open-modal" onClick={handleOpen}>
-        <ShoppingBag />
-      </IconButton>
+      <ThemeProvider theme={theme}>
+        <IconButton
+          aria-label="open-modal"
+          onClick={handleOpen}
+          className="header-icon-button"
+          color="primary"
+        >
+          <ShoppingBag />
+        </IconButton>
+      </ThemeProvider>
       <Modal
         open={props.modalOpen}
         onClose={handleClose}
