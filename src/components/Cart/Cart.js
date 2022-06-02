@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 import MuiInput from "@mui/material/Input";
 import "./Cart.css";
 import uniqid from "uniqid";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -16,7 +17,7 @@ const style = {
   width: 400,
   height: "100%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "none",
   boxShadow: 24,
   p: 4,
 };
@@ -35,14 +36,15 @@ function Cart(props) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className="modal-backdrop-layout"
       >
         <Box sx={style} className="cart-container">
           <div className="close-modal-button-container">
             <button className="close-modal-button" onClick={handleClose}>
-              X
+              <CloseIcon />
             </button>
           </div>
-          <div className="modal-title">Cart</div>
+          <div className="modal-title">Your Shopping Cart</div>
           <div className="cart-item-list">
             {props.products.map((object, i) => {
               if (object.quantity > 0) {
@@ -61,7 +63,7 @@ function Cart(props) {
           </div>
           <div className="modal-total-price">Total: ${props.totalPrice}.00</div>
           <div className="modal-checkout-button-container">
-            <button>CHECKOUT</button>
+            <button className="modal-checkout-button">CHECKOUT</button>
           </div>
         </Box>
       </Modal>
@@ -91,6 +93,7 @@ const CartItem = (props) => {
           product={props.product}
           setProducts={props.setProducts}
           products={props.products}
+          className="cart-item-input-slider"
         ></InputSlider>
         <div className="cart-item-total-price">
           ${props.product.price * props.product.quantity}.00
